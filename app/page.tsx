@@ -9,6 +9,7 @@ import { get2ProjectData } from "@/hooks/project";
 import { getAllExperienceData } from "@/hooks/experience";
 import { ExperienceTimeline } from "@/components/experience-timeline";
 
+export const dynamic = "force-dynamic";
 export default async function Home() {
 	const projects = await get2ProjectData();
 	const blogs = await get2BlogsData();

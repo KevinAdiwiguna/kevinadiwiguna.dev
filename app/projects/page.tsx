@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { getAllProjectData } from "@/hooks/project";
 import { ProjectCard } from "@/components/ui/project-card";
 
+export const dynamic = "force-dynamic";
 export default async function ProjectsPage() {
 	const projects = await getAllProjectData();
 

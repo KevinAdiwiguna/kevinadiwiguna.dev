@@ -1,9 +1,10 @@
-import { Terminal, Rss } from "lucide-react";
+import { Terminal } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getAllBlogsData } from "@/hooks/blog";
 import { BlogCard } from "@/components/ui/blog-card";
 
+export const dynamic = "force-dynamic";
 export default async function BlogPage() {
 	const posts = await getAllBlogsData();
 
