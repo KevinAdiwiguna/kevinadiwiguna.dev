@@ -1,9 +1,39 @@
+import type { Metadata } from "next";
 import { prisma } from "@/lib/db/prisma";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+	const resolvedParams = await params;
+	const post = await prisma.blogs.findUnique({
+		where: { slug: resolvedParams.slug },
+		select: { title: true, excerpt: true, image: true, tags: true },
+	});
+
+	if (!post) {
+		return {
+			title: "Blog Post Not Found",
+		};
+	}
+
+	const keywords = post.tags?.map((tag: { name: string }) => tag.name) || [];
+
+	return {
+		title: `${post.title} — Blog`,
+		description: post.excerpt || "Technical blog post and article.",
+		keywords: ["blog", "article", ...keywords],
+		openGraph: {
+			title: post.title,
+			description: post.excerpt || "Technical blog post and article.",
+			type: "article",
+			url: `https://kevinadiwiguna.dev/blogs/${resolvedParams.slug}`,
+			images: post.image ? [{ url: post.image, alt: post.title }] : [],
+		},
+	};
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
 	const resolvedParams = await params;

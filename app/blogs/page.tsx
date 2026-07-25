@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Terminal } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -5,6 +6,18 @@ import { getAllBlogsData } from "@/hooks/blog";
 import { BlogCard } from "@/components/ui/blog-card";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+	title: "Blog — Kevin Adiwiguna",
+	description: "Technical articles, software engineering insights, system architecture breakdowns, and development notes.",
+	keywords: ["blog", "technical writing", "software engineering", "system design", "development"],
+	openGraph: {
+		title: "Blog — Kevin Adiwiguna",
+		description: "Technical articles, software engineering insights, system architecture breakdowns, and development notes.",
+		type: "website",
+		url: "https://kevinadiwiguna.dev/blogs",
+	},
+};
 export default async function BlogPage() {
 	const posts = await getAllBlogsData();
 

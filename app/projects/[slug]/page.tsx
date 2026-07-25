@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { prisma } from "@/lib/db/prisma";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -6,6 +7,33 @@ import { ArrowLeft, Calendar, GitBranch, ExternalLink, Tag } from "lucide-react"
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+	const resolvedParams = await params;
+	const project = await prisma.project.findUnique({
+		where: { slug: resolvedParams.slug },
+		select: { title: true, shortDescription: true, image: true },
+	});
+
+	if (!project) {
+		return {
+			title: "Project Not Found",
+		};
+	}
+
+	return {
+		title: `${project.title} — Project`,
+		description: project.shortDescription || "Project details and information.",
+		keywords: ["project", project.title],
+		openGraph: {
+			title: project.title,
+			description: project.shortDescription || "Project details and information.",
+			type: "article",
+			url: `https://kevinadiwiguna.dev/projects/${resolvedParams.slug}`,
+			images: project.image ? [{ url: project.image, alt: project.title }] : [],
+		},
+	};
+}
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
 	const resolvedParams = await params;

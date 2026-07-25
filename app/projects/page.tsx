@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Terminal } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -5,6 +6,18 @@ import { getAllProjectData } from "@/hooks/project";
 import { ProjectCard } from "@/components/ui/project-card";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+	title: "Projects — Kevin Adiwiguna",
+	description: "Archive of digital projects, open-source tools, client solutions, and technical experiments.",
+	keywords: ["projects", "portfolio", "open-source", "development", "web development"],
+	openGraph: {
+		title: "Projects — Kevin Adiwiguna",
+		description: "Archive of digital projects, open-source tools, client solutions, and technical experiments.",
+		type: "website",
+		url: "https://kevinadiwiguna.dev/projects",
+	},
+};
 export default async function ProjectsPage() {
 	const projects = await getAllProjectData();
 

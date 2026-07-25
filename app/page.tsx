@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Hero } from "@/components/hero";
 import { TechStack } from "@/components/tech-stack";
 import { ContactForm } from "@/components/contact-form";
@@ -10,6 +11,18 @@ import { getAllExperienceData } from "@/hooks/experience";
 import { ExperienceTimeline } from "@/components/experience-timeline";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+	title: "Kevin Adiwiguna — Software Engineer",
+	description: "Full-stack software engineer specializing in web development. Explore my projects, technical writing, and experience.",
+	keywords: ["software engineer", "web developer", "full-stack", "portfolio", "React", "Next.js", "TypeScript"],
+	openGraph: {
+		title: "Kevin Adiwiguna — Software Engineer",
+		description: "Full-stack software engineer specializing in web development. Explore my projects, technical writing, and experience.",
+		type: "website",
+		url: "https://kevinadiwiguna.dev",
+	},
+};
 export default async function Home() {
 	const projects = await get2ProjectData();
 	const blogs = await get2BlogsData();
