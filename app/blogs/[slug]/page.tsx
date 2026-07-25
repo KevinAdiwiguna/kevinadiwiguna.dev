@@ -3,8 +3,9 @@ import { prisma } from "@/lib/db/prisma";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Calendar, Eye } from "lucide-react";
+import { ArrowLeft, Calendar, Eye, Clock, Tag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
 	const resolvedParams = await params;
@@ -60,39 +61,62 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
 	if (!post) notFound();
 
+	// Increment views counter
 	await prisma.blogs.update({
 		where: { id: post.id },
 		data: { views: { increment: 1 } },
 	});
 
+	const formattedDate = new Date(post.createdAt).toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "short",
+		day: "2-digit",
+	});
+
 	return (
-		<div className="">
-			<Link href="/blogs" className="inline-flex items-center gap-2 text-zinc-500 hover:text-terminal-green transition-colors font-mono text-sm">
-				<ArrowLeft size={16} />
-				RETURN_TO_BLOGS
-			</Link>
+		<div className="space-y-8 font-mono">
+			{/* Back Link */}
+			<div>
+				<Link href="/blogs" className="inline-flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors font-mono">
+					<ArrowLeft className="h-4 w-4" />
+					<span>&gt; cd ../blogs</span>
+				</Link>
+			</div>
 
-			<article className="space-y-8">
-				<div className="space-y-6">
-					<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">{post.title}</h1>
+			{/* Header Section */}
+			<header className="space-y-4">
+				<div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground/80">
+					<Badge variant="outline" className={cn("text-[10px] font-mono border-border/60", post.published ? "text-emerald-400 border-emerald-500/30 bg-emerald-500/10" : "text-amber-400 border-amber-500/30 bg-amber-500/10")}>
+						[{post.published ? "PUBLISHED" : "DRAFT"}]
+					</Badge>
 
-					<div className="flex flex-wrap items-center gap-6 font-mono text-xs text-zinc-500">
-						<span className="flex items-center gap-2">
-							<Calendar size={14} />
-							{new Date(post.createdAt).toLocaleDateString()}
-						</span>
-						<span className="flex items-center gap-2">
-							<Eye size={14} />
-							{post.views + 1} VIEWS
-						</span>
+					<div className="flex items-center gap-1.5 text-muted-foreground">
+						<Calendar className="h-3.5 w-3.5 text-primary/70" />
+						<span>{formattedDate}</span>
+					</div>
+
+					{post.readTime && (
+						<div className="flex items-center gap-1.5 text-muted-foreground">
+							<Clock className="h-3.5 w-3.5 text-primary/70" />
+							<span>{post.readTime} MIN_READ</span>
+						</div>
+					)}
+
+					<div className="flex items-center gap-1.5 text-muted-foreground">
+						<Eye className="h-3.5 w-3.5 text-primary/70" />
+						<span>{post.views + 1} VIEWS</span>
 					</div>
 				</div>
 
-				{post.image && (
-					<div className="relative aspect-video w-full rounded-lg overflow-hidden border border-zinc-800">
-						<Image src={post.image} alt={post.title} fill className="object-cover" />
-					</div>
-				)}
+				<div className="space-y-2 border-b border-border/40 pb-6">
+					<h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-foreground">
+						{post.title}
+						<span className="text-primary animate-pulse">_</span>
+					</h1>
+
+					{post.excerpt && <p className="text-sm sm:text-base text-muted-foreground/90 leading-relaxed font-sans">{post.excerpt}</p>}
+				</div>
+
 				<div className="space-y-4 pt-2 font-mono">
 					{post.categories && post.categories.length > 0 && (
 						<div className="space-y-2">
@@ -120,9 +144,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 						</div>
 					)}
 				</div>
+			</header>
 
-				<div className="prose prose-invert prose-p:text-zinc-400 prose-headings:text-white prose-pre:bg-zinc-950 prose-pre:border-zinc-800 prose-pre:border prose-a:text-terminal-green max-w-none" dangerouslySetInnerHTML={{ __html: post.content }} />
-			</article>
+			{post.image && (
+				<div className="relative aspect-video w-full rounded-lg overflow-hidden border border-border/40 bg-muted/20">
+					<Image src={post.image} alt={post.title} fill className="object-cover" priority />
+				</div>
+			)}
+
+			<article className="prose prose-invert max-w-none font-sans text-sm sm:text-base leading-relaxed border-t border-border/30 pt-6 prose-headings:font-mono prose-headings:tracking-tight prose-a:text-primary prose-pre:bg-zinc-950 prose-pre:border prose-pre:border-border/40" dangerouslySetInnerHTML={{ __html: post.content }} />
 		</div>
 	);
 }

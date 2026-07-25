@@ -82,21 +82,33 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 					{project.shortDescription && <p className="text-sm sm:text-base text-muted-foreground/90 leading-relaxed font-sans">{project.shortDescription}</p>}
 				</div>
 
-				{((project.technologies && project.technologies.length > 0) || (project.categories && project.categories.length > 0)) && (
-					<div className="flex flex-wrap gap-1.5 pt-1">
-						{project.categories?.map((cat) => (
-							<Badge key={cat.id} variant="outline" className="text-[10px] border-primary/30 text-primary bg-primary/5">
-								<Tag className="h-2.5 w-2.5 mr-1" />
-								{cat.name}
-							</Badge>
-						))}
-						{project.technologies?.map((tech) => (
-							<Badge key={tech.id} variant="secondary" className="text-[10px] border border-border/30 bg-muted/30 text-muted-foreground">
-								{tech.name}
-							</Badge>
-						))}
-					</div>
-				)}
+				<div className="space-y-4 pt-2 font-mono">
+					{project.categories && project.categories.length > 0 && (
+						<div className="space-y-2">
+							<h5 className="text-[11px] font-semibold text-muted-foreground/80 tracking-wider">&gt; CATEGORIES</h5>
+							<div className="flex flex-wrap gap-1.5">
+								{project.categories.map((category: { id: string; name: string }) => (
+									<Badge key={category.id} variant="outline" className="text-[10px] font-mono border-primary/30 text-primary bg-primary/5 hover:bg-primary/10 transition-colors">
+										{category.name}
+									</Badge>
+								))}
+							</div>
+						</div>
+					)}
+
+					{project.technologies && project.technologies.length > 0 && (
+						<div className="space-y-2">
+							<h5 className="text-[11px] font-semibold text-muted-foreground/80 tracking-wider">&gt; TECHNOLOGIES</h5>
+							<div className="flex flex-wrap gap-1.5">
+								{project.technologies.map((tech: { id: string; name: string }) => (
+									<Badge key={tech.id} variant="secondary" className="text-[10px] font-mono font-normal border border-border/30 bg-muted/30 text-muted-foreground hover:border-border/60 transition-colors px-2 py-0.5">
+										#{tech.name}
+									</Badge>
+								))}
+							</div>
+						</div>
+					)}
+				</div>
 
 				<div className="flex flex-wrap gap-3 pt-2">
 					{project.githubUrl && (
