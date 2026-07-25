@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
 
 export function Hero() {
 	const [text, setText] = useState("");
@@ -44,12 +45,16 @@ export function Hero() {
 				<p className="max-w-2xl text-muted-foreground mt-6 leading-relaxed">Building high-performance, futuristic web applications with Next.js, TypeScript, and clean architecture. Focused on scalable solutions and immersive user experiences.</p>
 
 				<div className="flex flex-wrap gap-4 mt-10">
-					<Button variant="default" className="font-mono font-bold rounded-sm px-8 py-6">
-						VIEW_PROJECTS
-					</Button>
-					<Button variant="outline" className="border-primary/30 text-primary hover:bg-primary/10 font-mono rounded-sm px-8 py-6">
-						READ_BLOG
-					</Button>
+					<Link href="#projects">
+						<Button variant="default" className="font-mono font-bold rounded-sm px-8 py-6">
+							VIEW_PROJECTS
+						</Button>
+					</Link>
+					<Link href="#blogs">
+						<Button variant="outline" className="border-primary/30 text-primary hover:bg-primary/10 font-mono rounded-sm px-8 py-6">
+							READ_BLOG
+						</Button>
+					</Link>
 				</div>
 			</motion.div>
 		</section>
