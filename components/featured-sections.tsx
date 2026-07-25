@@ -83,7 +83,7 @@ export function FeaturedSections({ projects, blogs }: FeaturedSectionsProps) {
 			)}
 
 			{blogs && blogs.length > 0 && (
-				<motion.section id="blog" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="space-y-8 border-t border-border pt-20 pb-20">
+				<motion.section id="blogs" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="space-y-8 border-t border-border pt-20 pb-20">
 					<div className="flex items-center justify-between gap-4 flex-wrap">
 						<div className="space-y-1">
 							<div className="flex items-center gap-2 text-primary font-mono text-sm">
