@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { FileCode, Book, Home, User, Terminal as TerminalIcon, LayoutDashboard } from "lucide-react";
+import { FileCode, Book, Home, LayoutDashboard } from "lucide-react";
 
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command";
 
@@ -43,7 +43,7 @@ export function CommandPalette() {
 						<FileCode className="mr-2 h-4 w-4 text-primary" />
 						<span>Projects</span>
 					</CommandItem>
-					<CommandItem onSelect={() => runCommand(() => router.push("/blog"))} className="cursor-pointer">
+					<CommandItem onSelect={() => runCommand(() => router.push("/blogs"))} className="cursor-pointer">
 						<Book className="mr-2 h-4 w-4 text-primary" />
 						<span>Blog</span>
 					</CommandItem>
@@ -60,10 +60,6 @@ export function CommandPalette() {
 					>
 						<LayoutDashboard className="mr-2 h-4 w-4 text-primary" />
 						<span>Dashboard</span>
-					</CommandItem>
-					<CommandItem onSelect={() => runCommand(() => console.log("Toggle Theme"))} className="cursor-pointer">
-						<TerminalIcon className="mr-2 h-4 w-4 text-primary" />
-						<span>Toggle Terminal Theme</span>
 					</CommandItem>
 				</CommandGroup>
 			</CommandList>

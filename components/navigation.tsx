@@ -53,7 +53,7 @@ export const Navigation = () => {
 					<span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
 					<span>STATUS: ONLINE</span>
 				</div>
-				<p>v1.6.6_prod</p>
+				<p>v1.6.7_prod</p>
 			</div>
 		</motion.aside>
 	);

@@ -17,16 +17,16 @@ export const Aside = () => {
 			<div className="h-16 w-px bg-border/40" />
 
 			<div className="flex flex-col items-center gap-5">
-				<a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Source Code (GitHub)">
+				<a href="https://github.com/KevinAdiwiguna" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Source Code (GitHub)">
 					<CodeXml className="h-4 w-4" />
 				</a>
-				<a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Network (LinkedIn)">
+				<a href="https://www.linkedin.com/in/kevinadiwiguna" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Network (LinkedIn)">
 					<Globe className="h-4 w-4" />
 				</a>
-				<a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Terminal Feed (Twitter/X)">
+				<a href="https://x.com/kepinkun112" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Terminal Feed (Twitter/X)">
 					<Terminal className="h-4 w-4" />
 				</a>
-				<a href="mailto:contact@kevin.dev" className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Email Direct">
+				<a href="mailto:me@kevinadiwiguna.dev" className="text-muted-foreground hover:text-primary transition-colors p-1" aria-label="Email Direct">
 					<Mail className="h-4 w-4" />
 				</a>
 			</div>
