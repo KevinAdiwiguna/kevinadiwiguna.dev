@@ -43,7 +43,7 @@ export default function RootLayout({
 			<ThemeProvider attribute="class" defaultTheme="dark">
 				<Analytics />
 				<body className="min-h-full flex flex-col bg-background text-foreground">
-					<header className="lg:hidden sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md px-4 py-3 flex items-center justify-between">
+					<header className="lg:hidden sticky top-0 z-50 w-full border-b border-border/20 bg-background/10 backdrop-blur-md px-4 py-3 flex items-center justify-between">
 						<Link href="/" className="font-mono text-xs font-bold text-primary tracking-wider">
 							&gt; KEVIN ADIWIGUNA_
 						</Link>
