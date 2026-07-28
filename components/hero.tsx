@@ -34,7 +34,7 @@ export function Hero() {
 				</div>
 
 				<h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter">
-					KEVIN <span className="text-primary">ADIWIGUNA</span>
+					IDA BAGUS KEVIN <span className="text-primary">ADIWIGUNA</span>
 				</h1>
 
 				<div className="h-10 text-xl md:text-2xl text-muted-foreground font-mono">

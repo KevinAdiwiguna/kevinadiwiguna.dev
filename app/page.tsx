@@ -13,11 +13,11 @@ import { ExperienceTimeline } from "@/components/experience-timeline";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-	title: "Home",
+	title: "Ida Bagus Kevin Adiwiguna — Full-Stack Software Engineer & Web Developer",
 	description: "Full-stack software engineer specializing in web development. Explore projects, technical writing, and experience from Ida Bagus Kevin Adiwiguna.",
 	keywords: ["software engineer", "web developer", "full-stack", "portfolio", "React", "Next.js", "TypeScript", "Lombok", "Ida Bagus Kevin Adiwiguna", "Kevin Adiwiguna", "Universitas Mataram", "Unram"],
 	openGraph: {
-		title: "Ida Bagus Kevin Adiwiguna — Software Engineer",
+		title: "Ida Bagus Kevin Adiwiguna — Full-Stack Software Engineer & Web Developer",
 		description: "Full-stack software engineer specializing in web development. Explore projects, technical writing, and experience.",
 		type: "website",
 		url: "https://kevinadiwiguna.dev",
