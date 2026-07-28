@@ -28,6 +28,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: "Kevin Adiwiguna — Software Dev",
 	description: "Personal portfolio and technical writing by Kevin Adiwiguna.",
+	verification: {
+		google: "NXt-POVwigbdSbfgpyh3UYH96nLPGd",
+	},
 };
 
 export default function RootLayout({
