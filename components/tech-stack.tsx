@@ -8,22 +8,22 @@ const CATEGORIES = [
 	{
 		title: "LANGUAGES",
 		icon: Terminal,
-		skills: ["TypeScript", "JavaScript", "Python", "Go", "Rust", "Java", "C++", "HTML5", "CSS3", "SQL", "Bash", "GraphQL"],
+		skills: ["TypeScript", "JavaScript", "Python", "Go", "PHP", "Dart"],
 	},
 	{
 		title: "FRONTEND",
 		icon: Layout,
-		skills: ["React", "Next.js", "Vue.js", "Svelte", "Tailwind CSS", "Framer Motion", "Zustand", "Redux", "Sass", "Material UI", "Chakra UI", "Three.js", "WebRTC"],
+		skills: ["React", "Next.js", "Vue.js", "Qwik", "Astro", "Tailwind CSS", "Framer Motion", "Zustand", "TanStack Query", "ShadnCn UI", "Radix UI", "Daisy UI"],
 	},
 	{
 		title: "BACKEND_&_DB",
 		icon: Database,
-		skills: ["Node.js", "Express", "NestJS", "Django", "FastAPI", "PostgreSQL", "MySQL", "MongoDB", "Redis", "Prisma", "Drizzle ORM", "Supabase", "Firebase", "Elasticsearch"],
+		skills: ["Node.js", "Express", "NestJS", "Django", "FastAPI", "PostgreSQL", "MySQL", "MongoDB", "Redis", "Prisma", "Drizzle ORM", "Supabase", "Firebase", "NeonDB"],
 	},
 	{
 		title: "TOOLS_&_DEVOPS",
 		icon: Wrench,
-		skills: ["Git", "Docker", "Kubernetes", "AWS", "Google Cloud", "Cloudflare", "Vercel", "Linux", "Nginx", "GitHub Actions", "Terraform", "Jest", "Cypress"],
+		skills: ["Git", "Docker", "AWS", "Google Cloud", "Cloudflare", "Vercel", "Linux", "Nginx", "GitHub Actions", "Jest"],
 	},
 ];
 
