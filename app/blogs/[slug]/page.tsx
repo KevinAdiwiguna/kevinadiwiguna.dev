@@ -23,9 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	const keywords = post.tags?.map((tag: { name: string }) => tag.name) || [];
 
 	return {
-		title: `${post.title} — Blog`,
+		title: post.title,
 		description: post.excerpt || "Technical blog post and article.",
-		keywords: ["blog", "article", ...keywords],
+		keywords: ["blog", "article", "Ida Bagus Kevin Adiwiguna", "Kevin Adiwiguna", "Lombok", "Universitas Mataram", "Unram", ...keywords],
 		openGraph: {
 			title: post.title,
 			description: post.excerpt || "Technical blog post and article.",
@@ -153,6 +153,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 			)}
 
 			<article className="prose prose-invert max-w-none font-sans text-sm sm:text-base leading-relaxed border-t border-border/30 pt-6 prose-headings:font-mono prose-headings:tracking-tight prose-a:text-primary prose-pre:bg-zinc-950 prose-pre:border prose-pre:border-border/40" dangerouslySetInnerHTML={{ __html: post.content }} />
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "BlogPosting",
+						headline: post.title,
+						image: post.image,
+						genre: post.categories.map((c: { name: string }) => c.name),
+						keywords: post.tags.map((t: { name: string }) => t.name),
+						url: `https://kevinadiwiguna.dev/blogs/${post.slug}`,
+						datePublished: post.createdAt,
+						dateModified: post.updatedAt,
+						author: {
+							"@type": "Person",
+							name: "Ida Bagus Kevin Adiwiguna",
+							url: "https://kevinadiwiguna.dev",
+						},
+						description: post.excerpt,
+						articleBody: post.content,
+					}),
+				}}
+			/>
 		</div>
 	);
 }

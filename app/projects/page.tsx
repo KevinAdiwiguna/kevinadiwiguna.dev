@@ -8,11 +8,11 @@ import { ProjectCard } from "@/components/ui/project-card";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-	title: "Projects — Kevin Adiwiguna",
-	description: "Archive of digital projects, open-source tools, client solutions, and technical experiments.",
-	keywords: ["projects", "portfolio", "open-source", "development", "web development"],
+	title: "Projects",
+	description: "Archive of digital projects, open-source tools, client solutions, and technical experiments by Ida Bagus Kevin Adiwiguna.",
+	keywords: ["projects", "portfolio", "open-source", "development", "web development", "Ida Bagus Kevin Adiwiguna", "Kevin Adiwiguna", "Lombok", "Universitas Mataram", "Unram"],
 	openGraph: {
-		title: "Projects — Kevin Adiwiguna",
+		title: "Projects | Ida Bagus Kevin Adiwiguna",
 		description: "Archive of digital projects, open-source tools, client solutions, and technical experiments.",
 		type: "website",
 		url: "https://kevinadiwiguna.dev/projects",

@@ -22,9 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	}
 
 	return {
-		title: `${project.title} — Project`,
+		title: project.title,
 		description: project.shortDescription || "Project details and information.",
-		keywords: ["project", project.title],
+		keywords: ["project", project.title, "Ida Bagus Kevin Adiwiguna", "Kevin Adiwiguna", "Lombok", "Universitas Mataram", "Unram"],
 		openGraph: {
 			title: project.title,
 			description: project.shortDescription || "Project details and information.",
@@ -133,6 +133,24 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 			)}
 
 			<article className="prose prose-invert max-w-none font-sans text-sm sm:text-base leading-relaxed border-t border-border/30 pt-6 prose-headings:font-mono prose-headings:tracking-tight prose-a:text-primary prose-pre:bg-zinc-950 prose-pre:border prose-pre:border-border/40" dangerouslySetInnerHTML={{ __html: project.content }} />
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{
+					__html: JSON.stringify({
+						"@context": "https://schema.org",
+						"@type": "SoftwareApplication",
+						name: project.title,
+						description: project.shortDescription,
+						author: {
+							"@type": "Person",
+							name: "Ida Bagus Kevin Adiwiguna",
+							url: "https://kevinadiwiguna.dev",
+						},
+						applicationCategory: "DeveloperApplication",
+						operatingSystem: "Web",
+					}),
+				}}
+			/>
 		</div>
 	);
 }

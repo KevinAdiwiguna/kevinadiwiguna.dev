@@ -8,11 +8,11 @@ import { BlogCard } from "@/components/ui/blog-card";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-	title: "Blog — Kevin Adiwiguna",
-	description: "Technical articles, software engineering insights, system architecture breakdowns, and development notes.",
-	keywords: ["blog", "technical writing", "software engineering", "system design", "development"],
+	title: "Blog",
+	description: "Technical articles, software engineering insights, system architecture breakdowns, and development notes by Ida Bagus Kevin Adiwiguna.",
+	keywords: ["blog", "technical writing", "software engineering", "system design", "development", "Ida Bagus Kevin Adiwiguna", "Kevin Adiwiguna", "Lombok", "Universitas Mataram", "Unram"],
 	openGraph: {
-		title: "Blog — Kevin Adiwiguna",
+		title: "Blog | Ida Bagus Kevin Adiwiguna",
 		description: "Technical articles, software engineering insights, system architecture breakdowns, and development notes.",
 		type: "website",
 		url: "https://kevinadiwiguna.dev/blogs",

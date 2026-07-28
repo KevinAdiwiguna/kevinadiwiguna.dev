@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import Link from "next/link";
@@ -25,9 +25,21 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+	themeColor: "black",
+	width: "device-width",
+	initialScale: 1,
+};
+
 export const metadata: Metadata = {
-	title: "Kevin Adiwiguna — Software Dev",
-	description: "Personal portfolio and technical writing by Kevin Adiwiguna.",
+	metadataBase: new URL("https://kevinadiwiguna.dev"),
+	title: {
+		default: "Ida Bagus Kevin Adiwiguna — Software Engineer",
+		template: "%s | Ida Bagus Kevin Adiwiguna",
+	},
+	description: "Personal portfolio, technical blog, and software projects by Ida Bagus Kevin Adiwiguna (KevinAdiwiguna).",
+	keywords: ["Ida Bagus Kevin Adiwiguna", "Kevin Adiwiguna", "KevinAdiwiguna", "Lombok", "Software Engineer", "Web Developer", "Universitas Mataram", "Unram"],
+	authors: [{ name: "Ida Bagus Kevin Adiwiguna", url: "https://kevinadiwiguna.dev" }],
 	verification: {
 		google: "NXt-POVwigbdSbfgpyh3UYH96nLPGd",
 	},
@@ -57,6 +69,29 @@ export default function RootLayout({
 
 							<MotionContainer>
 								<main className="min-w-0 py-6 lg:py-10 flex flex-col justify-center ">{children}</main>
+					<script
+						type="application/ld+json"
+						dangerouslySetInnerHTML={{
+							__html: JSON.stringify({
+								"@context": "https://schema.org",
+								"@type": "Person",
+								name: "Ida Bagus Kevin Adiwiguna",
+								alternateName: ["Kevin Adiwiguna", "KevinAdiwiguna"],
+								url: "https://kevinadiwiguna.dev",
+								jobTitle: "Software Engineer",
+								address: {
+									"@type": "PostalAddress",
+									addressLocality: "Lombok",
+									addressCountry: "ID",
+								},
+								alumniOf: {
+									"@type": "CollegeOrUniversity",
+									name: "Universitas Mataram",
+									alternateName: "UNRAM",
+								},
+							}),
+						}}
+					/>
 							</MotionContainer>
 
 							<Aside />
