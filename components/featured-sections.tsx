@@ -96,7 +96,7 @@ export function FeaturedSections({ projects, blogs }: FeaturedSectionsProps) {
 						</div>
 
 						<Button variant="ghost" size="sm" className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors gap-2">
-							<Link href="/blog">
+							<Link href="/blogs">
 								READ_MORE <ArrowRight className="h-3.5 w-3.5" />
 							</Link>
 						</Button>
