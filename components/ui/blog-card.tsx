@@ -15,6 +15,7 @@ export interface FeaturedBlog {
 	readTime: number;
 	views: number;
 	updatedAt: Date;
+	createdAt: Date;
 	tags: {
 		name: string;
 	}[];
@@ -33,7 +34,7 @@ export function BlogCard({ blog }: { blog: FeaturedBlog }) {
 				<div className="flex items-center gap-4 text-xs font-mono text-muted-foreground">
 					<span className="flex items-center gap-1.5">
 						<Calendar className="h-3.5 w-3.5 text-primary/80" />
-						{format(new Date(blog.updatedAt), "yyyy-MM-dd")}
+						{format(new Date(blog.createdAt), "yyyy-MM-dd")}
 					</span>
 					<span className="flex items-center gap-1.5">
 						<Clock className="h-3.5 w-3.5 text-primary/80" />

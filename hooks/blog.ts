@@ -17,6 +17,7 @@ export const get2BlogsData = async () => {
             readTime: true,
             views: true,
             updatedAt: true,
+            createdAt: true,
             tags: {
                 select: {
                     name: true,
@@ -46,6 +47,7 @@ export const getAllBlogsData = async () => {
             readTime: true,
             views: true,
             updatedAt: true,
+            createdAt: true,
             tags: {
                 select: {
                     name: true,

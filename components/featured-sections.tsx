@@ -29,6 +29,7 @@ export interface FeaturedBlog {
 	readTime: number;
 	views: number;
 	updatedAt: Date;
+	createdAt: Date;
 	tags: {
 		name: string;
 	}[];
